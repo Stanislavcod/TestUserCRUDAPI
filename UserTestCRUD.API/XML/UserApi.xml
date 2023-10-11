@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UserTestCRUD.API</name>
+    </assembly>
+    <members>
+        <member name="T:UserTestCRUD.API.Controllers.AuthController">
+            <summary>
+            Контроллер аутентификации и авторизации пользователей.
+            </summary>
+        </member>
+        <member name="M:UserTestCRUD.API.Controllers.AuthController.Get(UserTestCRUD.BusinessLogic.ViewModel.UserLoginViewModel)">
+             <summary>
+             Метод для аутентификации пользователя.
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 POST /auth/login
+                 {
+                    "email": "stas.dryk@gmail.com"
+                 }
+            
+             </remarks>
+             <param name="userLoginViewModel">Модель данных для входа пользователя.</param>
+             <returns>Аутентифицированный пользователь или код ошибки.</returns>
+        </member>
+        <member name="M:UserTestCRUD.API.Controllers.UserController.GetUsers(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Получение списка пользователей.
+            </summary>
+            <param name="page">Номер страницы.</param>
+            <param name="pageSize">Размер страницы.</param>
+            <param name="sortBy">Поле для сортировки.</param>
+            <param name="filter">Фильтр (необязательно).</param>
+            <returns>Список пользователей.</returns>
+        </member>
+        <member name="M:UserTestCRUD.API.Controllers.UserController.GetUser(System.Int32)">
+            <summary>
+            Получение пользователя по ID.
+            </summary>
+            <param name="userId">Идентификатор пользователя.</param>
+            <returns>Пользователь или код 404, если не найден.</returns>
+        </member>
+        <member name="M:UserTestCRUD.API.Controllers.UserController.CreateUser(UserTestCRUD.BusinessLogic.ViewModel.UserViewModel)">
+             <summary>
+             Создание нового пользователя.
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 POST /users
+                 {
+                    "name": "stas",
+                    "age": 21,
+                    "email": "stas.dryk@gmail.com",
+                    "roles": [
+                      {
+                         "name": "Admin"
+                      }
+                  ]
+                 }
+            
+             </remarks>
+             <param name="viewModel">Данные пользователя.</param>
+             <returns>Созданный пользователь или код ошибки.</returns>
+        </member>
+        <member name="M:UserTestCRUD.API.Controllers.UserController.UpdateUser(System.Int32,UserTestCRUD.BusinessLogic.ViewModel.UserViewModel)">
+             <summary>
+             Обновление существующего пользователя.
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 PUT /users/{userId:int}
+                 {
+                    "name": "stas",
+                    "age": 21,
+                    "email": "stas.dryk@gmail.com",
+                    "roles": [
+                      {
+                         "name": "Admin"
+                      }
+                  ]
+                 }
+            
+             </remarks>
+             <param name="userId">Идентификатор пользователя.</param>
+             <param name="viewModel">Данные для обновления.</param>
+             <returns>Обновленный пользователь или код ошибки.</returns>
+        </member>
+        <member name="M:UserTestCRUD.API.Controllers.UserController.DeleteUser(System.Int32)">
+            <summary>
+            Удаление пользователя по ID.
+            </summary>
+            <param name="userId">Идентификатор пользователя.</param>
+            <returns>Код 204 в случае успеха или код ошибки.</returns>
+        </member>
+        <member name="M:UserTestCRUD.API.Controllers.UserController.AddRoleToUser(System.Int32,System.String)">
+            <summary>
+            Добавление роли пользователю.
+            </summary>
+            <param name="userId">Идентификатор пользователя.</param>
+            <param name="roleName">Наименование роли.</param>
+            <returns>Код 200 в случае успеха или код ошибки.</returns>
+        </member>
+    </members>
+</doc>
